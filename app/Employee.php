@@ -8,7 +8,23 @@ class Employee extends Model
 {
     const UPDATED_AT = null;
     
-    public $fillable = ['id', 'company_id', 'name', 'status', 'processed_at'];
+    public $fillable = ['id', 'company_id', 'name', 'processed_at'];
+
+    /**
+     * Create a new Employee instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->status = 1;
+    }
+
+    public function inactivate()
+    {
+        $this->status = 0;
+    }
 
     /**
     * Get the company that owns the Employee

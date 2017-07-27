@@ -15,9 +15,9 @@ class Employee extends Model
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($attributes = array())
     {
-        parent::__construct();
+        parent::__construct($attributes);
         $this->status = 1;
     }
 

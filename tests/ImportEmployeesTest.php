@@ -68,9 +68,7 @@ class ImportEmployeesTest extends TestCase
     {
         copy(__DIR__."/files/inactivate_employee.csv", __DIR__."/../storage/app/files_to_be_imported/inactivate_employee.csv");
         $company = factory(App\Company::class)->create();
-        $employee = factory(App\Employee::class)->make();
-        var_dump($employee);
-        die;
+        $employee = factory(App\Employee::class)->create();
 
         $this->importEmployeeService->import();
 
@@ -79,7 +77,7 @@ class ImportEmployeesTest extends TestCase
         $this->seeInDatabase('employees', [
             'id' => 18297,
             'company_id' => 6854,
-            'name' => 'JOÃO DOS SANTOS SILVA',
+            'name' => 'teste',
             'status' => 0
         ]);
     }

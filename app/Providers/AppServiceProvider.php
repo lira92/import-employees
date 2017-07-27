@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use App\Services\ImportEmployeesService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->when(ImportEmployeesService::class)
+            ->needs(Logger::class)
+            ->give(function () {
+                $stream = new StreamHandler(storage_path("/logs/import_employees.log"), Logger::DEBUG);
+                $logger = new Logger('EmployeesImport');
+                $logger->pushHandler($stream);
+                return $logger;
+            });
     }
 }

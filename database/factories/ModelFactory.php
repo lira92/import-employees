@@ -31,3 +31,14 @@ $factory->define(App\Company::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Employee::class, function (Faker\Generator $faker) {
+    return [
+        'id' => 18297,
+        'company_id' => 6854,
+        'processed_at' => date('Y-m-d'),
+        'name' => 'teste',
+        'created_at' => date('Y-m-d'),
+        'status' => 1
+    ];
+});
+

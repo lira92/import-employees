@@ -11,7 +11,7 @@ use Monolog\Handler\StreamHandler;
 
 class ImportEmployeesService
 {
-    public function __construct(Logger $logger)
+    public function __construct(\Psr\Log\LoggerInterface $logger)
     {
         $this->importEmployeesLogger = $logger;
     }

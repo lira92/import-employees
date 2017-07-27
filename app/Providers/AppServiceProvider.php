@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->when(ImportEmployeesService::class)
-            ->needs(Logger::class)
+            ->needs(\Psr\Log\LoggerInterface::class)
             ->give(function () {
                 $stream = new StreamHandler(storage_path("/logs/import_employees.log"), Logger::DEBUG);
                 $logger = new Logger('EmployeesImport');

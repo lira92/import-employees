@@ -1,3 +1,5 @@
+[![build status](https://gitlab.com/lira92/import-employees/badges/master/build.svg)](https://gitlab.com/lira92/import-employees/commits/master)
+
 # Import Employees Aplication
 
 Considering that yout have php5.6+ and composer installed, after cloning 

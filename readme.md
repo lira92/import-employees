@@ -35,6 +35,9 @@ Copy your csv files that you want import to
 After the application import your csv files, it copy them to 
 *storage/app/imported_files* folder.
 
+The aplication register logs for inconsistences in 
+*storage/logs/import_employees.log*
+
 If you want to execute tests, execute:
 
 `./vendor/bin/phpunit`

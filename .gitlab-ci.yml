@@ -39,12 +39,7 @@ before_script:
   - curl -sS https://getcomposer.org/installer | php
   - php composer.phar install 
 
-  # Copy over testing configuration.
-  # Don't forget to set the database config in .env.testing correctly
-  DB_HOST=mysql
-  DB_DATABASE=import_employees
-  DB_USERNAME=root
-  DB_PASSWORD=import@employees
+  - cp .env.testing .env
 
   # Generate an application key. Re-cache.
   - php artisan key:generate

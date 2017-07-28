@@ -38,7 +38,10 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
+            "php artisan optimize",
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "php -r \"file_exists('storage/app/files_to_be_imported') || mkdir('storage/app/files_to_be_imported');\"",
+            "php -r \"file_exists('storage/app/imported_files') || mkdir('storage/app/imported_files');\""
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
